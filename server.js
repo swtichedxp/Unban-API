@@ -5,7 +5,7 @@ const app = express();
 
 // Set up CORS to allow requests from your frontend
 app.use(cors({
-    origin: 'https://YOUR_FRONTEND_URL', // IMPORTANT: Replace with your frontend's URL on Render
+    origin: 'https://zed-unban-tool.onrender.com', // IMPORTANT: Replace with your frontend's URL on Render
     methods: ['POST'],
     allowedHeaders: ['Content-Type'],
 }));
