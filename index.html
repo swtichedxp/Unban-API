@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andromeda Unban Tool</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+
+        :root {
+            --dark-bg: #181818;
+            --crimson-accent: #e53935;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --input-bg: rgba(255, 255, 255, 0.08);
+            --subtle-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            --button-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            --text-color: #dddddd;
+            --secondary-text-color: #aaaaaa;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-color: var(--dark-bg);
+            background-image: url('https://files.catbox.moe/b521vm.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background-image 0.5s ease-in-out;
+        }
+
+        .container {
+            background: var(--glass-bg);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px 20px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        h1 {
+            color: var(--crimson-accent);
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            color: var(--secondary-text-color);
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .main-button {
+            background: linear-gradient(145deg, var(--crimson-accent), #a80f2d);
+            width: 100%;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s, background-color 0.3s;
+            box-shadow: var(--button-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .main-button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, #ff0040, #b51133);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .info-section {
+            text-align: left;
+            margin-top: 40px;
+        }
+
+        .info-section h2 {
+            font-size: 1.2em;
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-section li {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 3px solid var(--crimson-accent);
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            color: var(--secondary-text-color);
+            transition: all 0.2s ease;
+        }
+
+        .info-section li:hover {
+            transform: translateX(5px);
+            border-color: #ff0040;
+        }
+        
+        .info-section li .fa-question-circle,
+        .info-section li .fa-info-circle,
+        .info-section li .fa-exclamation-triangle {
+            margin-right: 10px;
+            color: var(--crimson-accent);
+        }
+
+        .channel-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .channel-section h3 {
+            margin: 0 0 15px;
+            font-size: 1.2em;
+            color: var(--text-color);
+        }
+
+        .channel-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(145deg, var(--crimson-accent), #a80f2d);
+            border: none;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--button-shadow);
+        }
+
+        .channel-button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(145deg, #ff0040, #b51133);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: var(--secondary-text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Andromeda Unban Tool</h1>
+        <p>This tool generates a pre-formatted email to help you appeal a temporary or permanent ban on your WhatsApp account. We provide several prompts to match your situation and increase your chances of a successful appeal.</p>
+
+        <div class="button-container">
+            <a href="tool.html" class="main-button"><i class="fas fa-play-circle"></i> START UNBAN PROCESS</a>
+            <a href="https://t.me/zedside" target="_blank" class="main-button"><i class="fas fa-headset"></i> CONTACT SUPPORT</a>
+        </div>
+        
+        <div class="info-section">
+            <h2>Frequently Asked Questions</h2>
+            <ul>
+                <li><i class="fas fa-question-circle"></i> What are the common reasons for a WhatsApp ban?</li>
+                <li><i class="fas fa-exclamation-triangle"></i> Using unauthorized apps (WhatsApp Plus, GB WhatsApp, etc.).</li>
+                <li><i class="fas fa-exclamation-triangle"></i> Sending bulk or automated messages (spamming).</li>
+                <li><i class="fas fa-exclamation-triangle"></i> Creating fake accounts or impersonating others.</li>
+                <li><i class="fas fa-exclamation-triangle"></i> Being blocked or reported by many users.</li>
+                <li><i class="fas fa-exclamation-triangle"></i> Violating terms of service, including sending illegal or harmful content.</li>
+            </ul>
+            <ul>
+                <li><i class="fas fa-question-circle"></i> What is the difference between a temporary and permanent ban?</li>
+                <li><i class="fas fa-info-circle"></i> A **temporary ban** is a short-term suspension that usually lifts after a set period. It's often a warning for a minor violation.</li>
+                <li><i class="fas fa-info-circle"></i> A **permanent ban** means your account is blocked indefinitely and cannot be recovered unless you win a formal appeal.</li>
+            </ul>
+            <ul>
+                <li><i class="fas fa-question-circle"></i> What should I do after my appeal is sent?</li>
+                <li><i class="fas fa-info-circle"></i> Wait patiently for a response. Do not send multiple appeals in a short period, as this may be seen as spam and harm your case.</li>
+            </ul>
+            <ul>
+                <li><i class="fas fa-question-circle"></i> Can I get unbanned even with a permanent ban?</li>
+                <li><i class="fas fa-info-circle"></i> Yes, but it is challenging. The goal of this tool is to help you craft a professional appeal that a human reviewer will see and consider.</li>
+            </ul>
+        </div>
+        
+        <div class="channel-section">
+            <h3><i class="fas fa-bullhorn"></i> Get the latest updates</h3>
+            <a href="https://whatsapp.com/channel/0029Vb6AKMf3mFY29jNWTA29" target="_blank" class="channel-button"><i class="fab fa-whatsapp"></i> Follow My Channel</a>
+        </div>
+
+        <div class="footer">
+            <p>&copy; Spectra | 2025</p>
+        </div>
+    </div>
+
+</body>
+</html>
